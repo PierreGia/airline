@@ -122,61 +122,8 @@ def formsatisfaction():
         st.write("Données du formulaire:", df)
 
 
-
-
-
-
-
-
-    #st.title("resultats")
-    # Afficher les infos sélectionnés
+        #st.title("resultats")
     
-    
-    # if genre:
-    #     st.write(f"Genre: {genre}")
-
-    # if type_client:
-    #     st.write(f"Type de client: {type_client}")
-    # if age:
-    #     st.write(f"Âge: {age} ans")
-    # if type_trajet:
-    #     st.write(f"Type de trajet: {type_trajet}")
-    # if classe:
-    #     st.write(f"Type de vole: {classe}")
-    # if distance:
-    #     st.write(f"Distance: {distance} km")
-    # if wifi:
-    #     st.write(f"Qualité wifi: {wifi} ")
-    # if heure_depart_arrivee:
-    #     st.write(f"Heure de départ/arrivée pratique: {heure_depart_arrivee} ")
-    # if reservation:
-    #     st.write(f"Qualité reservation en ligne: {reservation} ")
-    # if emplacemement_porte:
-    #     st.write(f"Emplacement de la porte : {emplacemement_porte} ")   
-    # if food_drink :
-    #     st.write(f"nourriture : {food_drink} ")
-    # if embarquement_ligne :
-    #     st.write(f"nourriture : {embarquement_ligne} ")
-    # if comfort :
-    #     st.write(f"nourriture : {comfort} ")
-    # if divertissement :
-    #     st.write(f"divertissement : {divertissement} ")
-    # if service :
-    #     st.write(f"divertissement : {service} ")
-    # if service_jambes :
-    #     st.write(f"service pour les jambes: {service_jambes} ")
-    # if manutention_bagages :
-    #     st.write(f"service pour les jambes: {manutention_bagages} ")     
-    # if service_enregistrement :
-    #     st.write(f"service pour les jambes: {service_enregistrement} ")   
-    # if service_vole :
-    #     st.write(f"service en vole: {service_vole} ")
-    # if proprete :
-    #     st.write(f"propreté: {proprete} ")
-    # if retard_depart:
-    #     st.write(f"retart de départ: {retard_depart} ")
-    # if retard_arrivee:
-    #     st.write(f"retart d'arrivée: {retard_arrivee} ")
         
         
    
