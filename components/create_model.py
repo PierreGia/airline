@@ -16,7 +16,6 @@ from sklearn.kernel_approximation import RBFSampler
 from useful_function import test_model
 from sklearn.ensemble import RandomForestClassifier
 
-
 # Comme le fichier "Airplane.py" est inclus dans le dossier parent du dossier actuel on revient deux fois en arrière
 parent_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(parent_dir)
@@ -68,7 +67,7 @@ param_grid_model = {
     'learning_rate': ['constant', 'optimal'],
     'eta0': [0.01]},
     RandomForestClassifier : {'n_estimators': [100],
-    'max_depth': [3, 5, 8]},
+                              'min_samples_split': [2]}
 }
 
 # On definit les models
