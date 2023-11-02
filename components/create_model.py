@@ -11,6 +11,11 @@ import pandas as pd
 import os, sys
 import joblib
 from sklearn.model_selection import train_test_split
+from sklearn.linear_model import SGDClassifier
+from sklearn.kernel_approximation import RBFSampler
+from useful_function import test_model
+from sklearn.ensemble import RandomForestClassifier
+
 
 # Comme le fichier "Airplane.py" est inclus dans le dossier parent du dossier actuel on revient deux fois en arrière
 parent_dir = os.path.dirname(os.path.abspath(__file__))
@@ -56,7 +61,20 @@ y = y.map({"neutral or dissatisfied": 0, "satisfied": 1})
 X_train, X_test, y_train, y_test = train_test_split(X_clean, y, test_size=0.2, random_state=42)
 X_train.shape, X_test.shape, y_train.shape, y_test.shape
 
-
+# On définit les hyperparamètres des models
 param_grid_model = {
-    
+    SGDClassifier : {'loss': ['squared_hinge', 'log_loss', 'squared_error'],
+    'penalty': ['l1', 'elasticnet'],
+    'learning_rate': ['constant', 'optimal'],
+    'eta0': [0.01]},
+    RandomForestClassifier : {'n_estimators': [100],
+    'max_depth': [3, 5, 8]},
 }
+
+# On definit les models
+models = {"SGDClassifier" : SGDClassifier,
+          "RBFSampler" : RBFSampler(gamma=1),
+          "RandomForestClassifier" : RandomForestClassifier}
+
+# Testons les modèles en fonction des hyperparamètres
+test_model(X_train, X_test, y_train, y_test, models, param_grid_model)
