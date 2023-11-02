@@ -2,8 +2,15 @@
 #dans app on appelle les différentes fonction des fichiers dans components
 
 import streamlit as st
+import streamlit.components.v1 as components
+import pandas as pd
+
 
 def formsatisfaction():
+    
+    '''
+    formulaire pour permettre a l'utilisateur de rentréer des paramètres et utiliser le model sur ces variables.
+    '''
     # Titre de l'application
     st.title("Application de Vols")
 
@@ -79,74 +86,97 @@ def formsatisfaction():
     retard_arrivee = st.number_input("Retard d'arrivée':", min_value=0, max_value=1900, value=60)
 
 
-    st.title("resultats")
+
+    # Bouton pour soumettre le formulaire
+    if st.button("Soumettre"):
+        # Créez un dictionnaire contenant les données du formulaire
+        data = {
+            'Genre': [genre],
+            'Type de client': [type_client],
+            'Âge': [age],
+            'Type de trajet': [type_trajet],
+            'Classe': [classe],
+            'Distance': [distance],
+            'Qualité du wifi': [wifi],
+            'Heure de départ/arrivée pratique': [heure_depart_arrivee],
+            'Facilité de réservation en ligne': [reservation],
+            'Emplacement de la porte': [emplacemement_porte],
+            'Nourriture/Boissons': [food_drink],
+            'Embarquement en ligne': [embarquement_ligne],
+            'Confort d\'assise': [comfort],
+            'Divertissement à bord': [divertissement],
+            'Service à bord': [service],
+            'Service pour les jambes': [service_jambes],
+            'Manutention des bagages': [manutention_bagages],
+            'Service d\'enregistrement': [service_enregistrement],
+            'Service en vol': [service_vole],
+            'Propreté': [proprete],
+            'Retard de départ': [retard_depart],
+            'Retard d\'arrivée': [retard_arrivee]
+        }
+
+        # Créez un DataFrame à partir du dictionnaire
+        df = pd.DataFrame(data)
+
+        # Affichez le DataFrame
+        st.write("Données du formulaire:", df)
+
+
+
+
+
+
+
+
+    #st.title("resultats")
     # Afficher les infos sélectionnés
-    if genre:
-        st.write(f"Genre: {genre}")
+    
+    
+    # if genre:
+    #     st.write(f"Genre: {genre}")
 
-    if type_client:
-        st.write(f"Type de client: {type_client}")
-        
-    if age:
-        st.write(f"Âge: {age} ans")
-        
-    if type_trajet:
-        st.write(f"Type de trajet: {type_trajet}")
-    
-    if classe:
-        st.write(f"Type de vole: {classe}")
-    
-    if distance:
-        st.write(f"Distance: {distance} km")
-        
-    if wifi:
-        st.write(f"Qualité wifi: {wifi} ")
-    
-    if heure_depart_arrivee:
-        st.write(f"Heure de départ/arrivée pratique: {heure_depart_arrivee} ")
-    
-    if reservation:
-        st.write(f"Qualité reservation en ligne: {reservation} ")
-        
-      
-    if emplacemement_porte:
-        st.write(f"Emplacement de la porte : {emplacemement_porte} ")   
-    
-    if food_drink :
-        st.write(f"nourriture : {food_drink} ")
-    
-    if embarquement_ligne :
-        st.write(f"nourriture : {embarquement_ligne} ")
-    
-    if comfort :
-        st.write(f"nourriture : {comfort} ")
-    
-    if divertissement :
-        st.write(f"divertissement : {divertissement} ")
-        
-    if service :
-        st.write(f"divertissement : {service} ")
-        
-    if service_jambes :
-        st.write(f"service pour les jambes: {service_jambes} ")
-    
-    if manutention_bagages :
-        st.write(f"service pour les jambes: {manutention_bagages} ")     
-    
-    if service_enregistrement :
-        st.write(f"service pour les jambes: {service_enregistrement} ")   
-    
-    if service_vole :
-        st.write(f"service en vole: {service_vole} ")
-    
-    if proprete :
-        st.write(f"propreté: {proprete} ")
-
-    if retard_depart:
-        st.write(f"retart de départ: {retard_depart} ")
-        
-    if retard_arrivee:
-        st.write(f"retart d'arrivée: {retard_arrivee} ")
+    # if type_client:
+    #     st.write(f"Type de client: {type_client}")
+    # if age:
+    #     st.write(f"Âge: {age} ans")
+    # if type_trajet:
+    #     st.write(f"Type de trajet: {type_trajet}")
+    # if classe:
+    #     st.write(f"Type de vole: {classe}")
+    # if distance:
+    #     st.write(f"Distance: {distance} km")
+    # if wifi:
+    #     st.write(f"Qualité wifi: {wifi} ")
+    # if heure_depart_arrivee:
+    #     st.write(f"Heure de départ/arrivée pratique: {heure_depart_arrivee} ")
+    # if reservation:
+    #     st.write(f"Qualité reservation en ligne: {reservation} ")
+    # if emplacemement_porte:
+    #     st.write(f"Emplacement de la porte : {emplacemement_porte} ")   
+    # if food_drink :
+    #     st.write(f"nourriture : {food_drink} ")
+    # if embarquement_ligne :
+    #     st.write(f"nourriture : {embarquement_ligne} ")
+    # if comfort :
+    #     st.write(f"nourriture : {comfort} ")
+    # if divertissement :
+    #     st.write(f"divertissement : {divertissement} ")
+    # if service :
+    #     st.write(f"divertissement : {service} ")
+    # if service_jambes :
+    #     st.write(f"service pour les jambes: {service_jambes} ")
+    # if manutention_bagages :
+    #     st.write(f"service pour les jambes: {manutention_bagages} ")     
+    # if service_enregistrement :
+    #     st.write(f"service pour les jambes: {service_enregistrement} ")   
+    # if service_vole :
+    #     st.write(f"service en vole: {service_vole} ")
+    # if proprete :
+    #     st.write(f"propreté: {proprete} ")
+    # if retard_depart:
+    #     st.write(f"retart de départ: {retard_depart} ")
+    # if retard_arrivee:
+    #     st.write(f"retart d'arrivée: {retard_arrivee} ")
         
         
    
