@@ -3,6 +3,10 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 import joblib
 import pandas as pd
 from sklearn.linear_model import SGDClassifier
+from sklearn.metrics import confusion_matrix
+import matplotlib.pyplot as plt
+import numpy as np
+import itertools
 
 def test_model(X_train, X_test, y_train, y_test, models, param_grids):
   '''
@@ -53,3 +57,79 @@ def test_model(X_train, X_test, y_train, y_test, models, param_grids):
   # Enregistrement du dataframe
   metrics.to_csv("ML/metrics.csv", index=False)
   return metrics
+
+def make_confusion_matrix(y_true, y_pred, classes=None, figsize=(10, 10), text_size=15, norm=False): 
+  """Fait une matrice de confusion étiquetée comparant les prédictions aux étiquettes de vérité.
+Si classes est passé, la matrice de confusion sera étiquetée, sinon, des valeurs de classe entières seront utilisées.
+
+Arguments :
+        y_true : Tableau des étiquettes de vérité (doit avoir la même forme que y_pred).
+        y_pred : Tableau des étiquettes prédites (doit avoir la même forme que y_true).
+        classes : Tableau des étiquettes de classe (par exemple, sous forme de chaînes de caractères). Si None, des étiquettes entières sont utilisées.
+        figsize : Taille de la figure de sortie (par défaut : (10, 10)).
+        text_size : Taille du texte de la figure de sortie (par défaut : 15).
+        norm : Normaliser les valeurs ou non (par défaut : False).
+        savefig : Enregistrer la matrice de confusion dans un fichier (par défaut : False).
+Renvoie :
+Une matrice de confusion étiquetée comparant y_true et y_pred.
+  """  
+  # Créez la matrice de confusion
+  cm = confusion_matrix(y_true, y_pred)
+  cm_norm = cm.astype("float") / cm.sum(axis=1)[:, np.newaxis] # normalise
+  n_classes = cm.shape[0] # determine le nombre de classes que la matrice de confusion contient
+
+  # Trace la figure et la rend jolie
+  fig, ax = plt.subplots(figsize=figsize)
+  cax = ax.matshow(cm, cmap=plt.cm.Blues) # les couleurs indiquent à quel point la matrice de confusion correspond, le plus foncé est le mieux
+  fig.colorbar(cax)
+
+  # Y a t-il une liste de noms de classe ?
+  if classes:
+    labels = classes
+  else:
+    labels = np.arange(cm.shape[0])
+  
+  # Nommer les axes
+  ax.set(title="Confusion Matrix",
+         xlabel="Predicted label",
+         ylabel="True label",
+         xticks=np.arange(n_classes), # creer suffisament de slots pour chaque classe
+         yticks=np.arange(n_classes), 
+         xticklabels=labels, #  les axes sont etiquettés avec les noms de classe (s'il existent) ou des entiers
+         yticklabels=labels)
+  
+  # Fais apparaitre les etiquettes de l'axe x en bas
+  ax.xaxis.set_label_position("bottom")
+  ax.xaxis.tick_bottom()
+
+  #  Paramétrer le seuil pour differentes couleurs
+  threshold = (cm.max() + cm.min()) / 2.
+
+  # Tracer le texte dans chaque cellule
+  for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
+    if norm:
+      plt.text(j, i, f"{cm[i, j]} ({cm_norm[i, j]*100:.1f}%)",
+              horizontalalignment="center",
+              color="white" if cm[i, j] > threshold else "black",
+              size=text_size)
+    else:
+      plt.text(j, i, f"{cm[i, j]}",
+              horizontalalignment="center",
+              color="white" if cm[i, j] > threshold else "black",
+              size=text_size)
+
+  # Enregistrer la figure dans le dossier courant
+  fig.savefig("figures/confusion_matrix.png")
+
+def plot_features(columns, importances, n=20):
+  df = (pd.DataFrame({"features": columns,
+                      "feature_importances": np.round(importances, 3)})
+      .sort_values("feature_importances", ascending=False)
+      .reset_index(drop=True))
+  
+  # Plot the dataframe
+  fig, ax = plt.subplots()
+  ax.barh(df["features"][:n], df["feature_importances"][:20])
+  ax.set_ylabel("Features")
+  ax.set_xlabel("Feature_importance")
+  ax.invert_yaxis()

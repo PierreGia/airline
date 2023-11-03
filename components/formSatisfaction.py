@@ -69,7 +69,7 @@ def formsatisfaction():
     service_enregistrement = st.radio("Checkin service:", ("1","2","3","4","5"))
     
     # #formulaire Service en vol
-    # service_vole = st.radio("Inflight entertainment:", ("0","1", "2","3","4","5"))
+    service_vole = st.radio("Inflight service:", ("1", "2","3","4","5"))
     
     #formulaire propreté
     proprete = st.radio("Cleanliness:", ("1","2","3","4","5"))
@@ -102,6 +102,7 @@ def formsatisfaction():
             # 'Service pour les jambes': [service_jambes],
             'Baggage handling': [manutention_bagages],
             'Checkin service': [service_enregistrement],
+            'Inflight service': [service_vole],
             # 'Inflight entertainment': [service_vole],
             'Cleanliness': [proprete],
             # 'Retard de départ': [retard_depart],
