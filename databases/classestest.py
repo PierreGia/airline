@@ -4,10 +4,15 @@ from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
 
+class Satisfaction(Base):
+    __tablename__ = 'satisfaction'
+    id = Column(Integer, primary_key=True)
+    type = Column(String(255), nullable=False)
+
 class Gender(Base):
     __tablename__ = 'gender'
     id = Column(Integer, primary_key=True)
-    gender = Column(String)
+    gender = Column(String(255), nullable=False)
 
 class Client(Base):
     __tablename__ = 'client'
@@ -19,10 +24,10 @@ class Client(Base):
     type = relationship('Type')
     
     
-class Type(Base):
-    __tablename__ = 'type'
+class Customer_type(Base):
+    __tablename__ = 'customer_type'
     id = Column(Integer, primary_key=True)
-    customer_type = Column(String)
+    type = Column(String(255), nullable=False)
     
 
 class Flight(Base):
@@ -36,16 +41,16 @@ class Flight(Base):
 class Type_Travel(Base):
     __tablename__ = 'type_travel'
     id = Column(Integer, primary_key=True)
-    type_travel = Column(String)
+    type_travel = Column(String(255), nullable=False)
 
 class Class(Base):
     __tablename__ = 'class'
     id = Column(Integer, primary_key=True)
-    class_travel = Column(String)
+    class_travel = Column(String(255), nullable=False)
+ 
     
-    
-class Vole_Client(Base):
-    __tablename__ = 'vole_client'
+class Vol_Client(Base):
+    __tablename__ = 'vol_client'
     id = Column(Integer, primary_key=True)
     inflight_wifi_service = Column(Integer)
     departure_arrival_time_convenient = Column(Integer)
@@ -60,11 +65,13 @@ class Vole_Client(Base):
     baggage_handling = Column(Integer)
     checkin_service = Column(Integer)
     inflight_service = Column(Integer)
-    cleanliness = Column(String)
+    cleanliness = Column(Integer)
+    satisfaction_id = Column(Integer, ForeignKey('satisfaction.id'))
     client_id = Column(Integer, ForeignKey('client.id'))
     flight_id = Column(Integer, ForeignKey('flight.id'))
     class_id = Column(Integer, ForeignKey('class.id'))
     type_travel_id = Column(Integer, ForeignKey('type_travel.id'))
+    satisfaction = relationship('Satisfaction')
     client = relationship('Client')
     flight = relationship('Flight')
     class_travel=relationship('Class')

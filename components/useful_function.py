@@ -133,3 +133,4 @@ def plot_features(columns, importances, n=20):
   ax.set_ylabel("Features")
   ax.set_xlabel("Feature_importance")
   ax.invert_yaxis()
+  return fig

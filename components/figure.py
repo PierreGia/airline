@@ -1,10 +1,11 @@
-from sklearn.metrics import confusion_matrix, classification_report
+from sklearn.metrics import classification_report
 import joblib
 from create_model import X_test, y_test
 from sklearn.metrics import RocCurveDisplay
 import matplotlib.pyplot as plt
 from useful_function import make_confusion_matrix, plot_features
 import pandas as pd
+import streamlit as st
 
 # Analyse du model RandomForestClassifier
 
@@ -13,13 +14,13 @@ model = joblib.load("ML/RandomForestClassifier.joblib")
 y_pred = model.predict(X_test)
 
 # Creation de la courbe ROC
-RocCurveDisplay.from_estimator(model, X_test, y_test)
+curvroc = RocCurveDisplay.from_estimator(model, X_test, y_test)
 
 # Sauvegarde de la figure
 plt.savefig('figures/roc_curve.png')
 
 # Creation de la matrice de confusion et sauvegarde de la figure
-make_confusion_matrix(y_test, y_pred)
+confmat = make_confusion_matrix(y_test, y_pred)
 
 # Creation du rapport de classification et sauvegarde du rapport
 report = classification_report(y_test, y_pred)
@@ -28,13 +29,18 @@ with open('figures/classification_report.txt', 'w') as file:
 
 # Recuperer les metriques
 metrics = pd.read_csv('ML/metrics.csv')
-metrics.T.plot.bar(title="scores du model RandomForestClassifier")
+metric = metrics.T.plot.bar(title="scores du model RandomForestClassifier")
 
 # Sauvegarde de la figure
 plt.savefig('figures/metrics.png')
 
 # Creation du graphique des features et sauvegarde de la figure
-plot_features(X_test.columns, model.feature_importances_)
+features = plot_features(X_test.columns, model.feature_importances_)
 plt.savefig('figures/features.png')
 
+def plot_graph(curvroc, confmat, metric, features):
+    st.pyplot(curvroc.figure_)
+    st.pyplot(confmat)
+    st.pyplot(metric)
+    st.pyplot(features)
 

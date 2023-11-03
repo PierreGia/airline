@@ -3,6 +3,7 @@
 import streamlit as st
 from components.formSatisfaction import formsatisfaction
 from components.boardStat import boardstat
+from components.figure import plot_graph, curvroc, confmat, metric, features
 from Airplane import df
 
 # Titre de l'application
@@ -11,13 +12,16 @@ from Airplane import df
 
 
 # Menu de navigation latéral
-selection = st.sidebar.radio("Sélectionnez une page", ["formulaire", "tableau de bord"])
+selection = st.sidebar.radio("Sélectionnez une page", ["formulaire", "tableau de bord", "graphe"])
 
 if selection == "formulaire":
     formsatisfaction ()
     
 elif selection == "tableau de bord":
     boardstat()
+
+elif selection == "graphe":
+    plot_graph(curvroc, confmat, metric, features)
 
 
 
