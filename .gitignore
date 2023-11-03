@@ -161,3 +161,7 @@ cython_debug/
 
 # Model
 ML/RandomForestClassifier.joblib
+ML/preprocessor.joblib
+ML/RBFSampler.joblib
+ML/SGDClassifier.joblib
+

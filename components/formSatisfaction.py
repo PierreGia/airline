@@ -8,9 +8,8 @@ import joblib
 
 
 def formsatisfaction():
-    
     '''
-    formulaire pour permettre a l'utilisateur de rentréer des paramètres et utiliser le model sur ces variables.
+    formulaire pour permettre à l'utilisateur de rentrer des paramètres et utiliser le modèle sur ces variables.
     '''
     # Titre de l'application
     st.title("Application de Vols")
@@ -132,6 +131,7 @@ def formsatisfaction():
             satisfaction, mood, proba = "Neutral or dissatisfied", ":angry:", (1 - model.predict_proba(df)[0][1])
 
         st.write("Prediction:", satisfaction, "with probability:", f"{proba*100:.2f} %", mood)
+
 
 
         #st.title("resultats")

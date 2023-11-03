@@ -38,7 +38,7 @@ Session = sessionmaker(bind=engine)
 session = Session()
 
 # Récupération du dataframe
-csv_file_path = "data/airline_short.csv"
+csv_file_path = "data/Airline_Dataset.csv"
 
 # Lecture du fichier CSV et insertion des données dans la table
 with open(csv_file_path, "r", newline="") as csv_file:

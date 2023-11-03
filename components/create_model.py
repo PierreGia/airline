@@ -22,6 +22,21 @@ parent_dir = os.path.dirname(parent_dir)
 sys.path.append(parent_dir)
 from Airplane import df
 
+# Remplacer les valeurs à zeros par la moyenne car zero représente l'absence d'avis
+df["Inflight wifi service"] = df["Inflight wifi service"].replace(0, df["Inflight wifi service"].mean())
+df["departure/arrival time convenient"] = df["departure/arrival time convenient"].replace(0, df["departure/arrival time convenient"].mean())
+df["ease of online booking"] = df["ease of online booking"].replace(0, df["ease of online booking"].mean())
+df["gate location"] = df["gate location"].replace(0, df["gate location"].mean())
+df["food and drink"] = df["food and drink"].replace(0, df["food and drink"].mean())
+df["online boarding"] = df["online boarding"].replace(0, df["online boarding"].mean())
+df["seat comfort"] = df["seat comfort"].replace(0, df["seat comfort"].mean())
+df["inflight entertainment"] = df["inflight entertainment"].replace(0, df["inflight entertainment"].mean())
+df["onboard service"] = df["onboard service"].replace(0, df["onboard service"].mean())
+df["leg room service"] = df["leg room service"].replace(0, df["leg room service"].mean())
+df["checkin service"] = df["checkin service"].replace(0, df["checkin service"].mean())
+df["inflight service"] = df["inflight service"].replace(0, df["inflight service"].mean())
+df["cleanliness"] = df["cleanliness"].replace(0, df["cleanliness"].mean())
+
 # Separation de la target et des features
 X = df.drop(["Satisfaction","id", "Departure Delay in Minutes", "Gender", "Food and drink", "Inflight entertainment", "Leg room service", ], axis=1)
 y = df["Satisfaction"]
