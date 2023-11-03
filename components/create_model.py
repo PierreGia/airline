@@ -23,15 +23,16 @@ sys.path.append(parent_dir)
 from Airplane import df
 
 # Separation de la target et des features
-X = df.drop(["Satisfaction","id"], axis=1)
+X = df.drop(["Satisfaction","id", "Departure Delay in Minutes", "Gender", "Food and drink", "Inflight entertainment", "Leg room service", ], axis=1)
 y = df["Satisfaction"]
 
-# Creation des colonnes numeriques et categorielles et Conversion des variables numeriques en flottants
+# Enregistrement du dataframe original avec les colonnes jugées inutiles pour la prédiction retirées
+X.to_csv("data/airline_short.csv", index=False)
+
+# Creation des colonnes numeriques et categorielles et conversion des variables entieres en flottants
 numerical_features = make_column_selector(dtype_include=np.number)
 categorical_features = make_column_selector(dtype_exclude=np.number)
 X[numerical_features] = X[numerical_features].astype(float)
-X["Average delay in minutes"] = X[['Departure Delay in Minutes','Arrival Delay in Minutes']].mean(axis=1)
-X.drop(['Departure Delay in Minutes','Arrival Delay in Minutes'], axis=1, inplace=True)
 
 # On récupère les noms des colonnes numeriques et categorielles pour les ajouter à la fin
 numeric_columns = X[numerical_features].columns
@@ -62,17 +63,17 @@ X_train.shape, X_test.shape, y_train.shape, y_test.shape
 
 # On définit les hyperparamètres des models
 param_grid_model = {
-    SGDClassifier : {'loss': ['squared_hinge', 'log_loss', 'squared_error'],
-    'penalty': ['l1', 'elasticnet'],
-    'learning_rate': ['constant', 'optimal'],
-    'eta0': [0.01]},
-    RandomForestClassifier : {'n_estimators': [100],
-                              'min_samples_split': [2]}
+    # SGDClassifier : {'loss': ['log_loss', 'squared_error'],
+    # 'penalty': ['l1', 'elasticnet'],
+    # 'learning_rate': ['constant', 'optimal'],
+    # 'eta0': [0.01],
+    # 'n_jobs': [-1]},
+    RandomForestClassifier : {'n_jobs': [-1]}                                                          
 }
 
 # On definit les models
-models = {"SGDClassifier" : SGDClassifier,
-          "RBFSampler" : RBFSampler(gamma=1),
+models = { #"SGDClassifier" : SGDClassifier,
+          #"RBFSampler" : RBFSampler(gamma=1),
           "RandomForestClassifier" : RandomForestClassifier}
 
 # Testons les modèles en fonction des hyperparamètres
