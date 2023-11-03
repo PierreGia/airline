@@ -68,7 +68,8 @@ param_grid_model = {
     'learning_rate': ['constant', 'optimal'],
     'eta0': [0.01]},
     RandomForestClassifier : {'n_estimators': [100],
-    'max_depth': [3, 5, 8]},
+    'max_depth': [3, 5, 8],
+    'n_job':[-1],}
 }
 
 # On definit les models
