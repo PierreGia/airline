@@ -7,7 +7,7 @@ Base = declarative_base()
 class Gender(Base):
     __tablename__ = 'gender'
     id = Column(Integer, primary_key=True)
-    gender = Column(String)
+    gender = Column(String(255))
 
 class Client(Base):
     __tablename__ = 'client'
@@ -19,10 +19,10 @@ class Client(Base):
     type = relationship('Type')
     
     
-class Type(Base):
+class Type_customer(Base):
     __tablename__ = 'type'
     id = Column(Integer, primary_key=True)
-    customer_type = Column(String)
+    customer_type = Column(String(255))
     
 
 class Flight(Base):
@@ -36,12 +36,12 @@ class Flight(Base):
 class Type_Travel(Base):
     __tablename__ = 'type_travel'
     id = Column(Integer, primary_key=True)
-    type_travel = Column(String)
+    type_travel = Column(String(255))
 
 class Class(Base):
     __tablename__ = 'class'
     id = Column(Integer, primary_key=True)
-    class_travel = Column(String)
+    class_travel = Column(String(255))
     
     
 class Vole_Client(Base):
@@ -60,7 +60,8 @@ class Vole_Client(Base):
     baggage_handling = Column(Integer)
     checkin_service = Column(Integer)
     inflight_service = Column(Integer)
-    cleanliness = Column(String)
+    cleanliness = Column(Integer)
+    satisfaction = Column(String(255))
     client_id = Column(Integer, ForeignKey('client.id'))
     flight_id = Column(Integer, ForeignKey('flight.id'))
     class_id = Column(Integer, ForeignKey('class.id'))

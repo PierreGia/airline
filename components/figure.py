@@ -5,21 +5,24 @@ from sklearn.metrics import RocCurveDisplay
 import matplotlib.pyplot as plt
 from useful_function import make_confusion_matrix, plot_features
 import pandas as pd
-
+import streamlit as st
 # Analyse du model RandomForestClassifier
+
 
  # Chargement du modèle
 model = joblib.load("ML/RandomForestClassifier.joblib")
 y_pred = model.predict(X_test)
 
 # Creation de la courbe ROC
-RocCurveDisplay.from_estimator(model, X_test, y_test)
+curve_roc= RocCurveDisplay.from_estimator(model, X_test, y_test)
 
 # Sauvegarde de la figure
 plt.savefig('figures/roc_curve.png')
 
+
 # Creation de la matrice de confusion et sauvegarde de la figure
 make_confusion_matrix(y_test, y_pred)
+
 
 # Creation du rapport de classification et sauvegarde du rapport
 report = classification_report(y_test, y_pred)
