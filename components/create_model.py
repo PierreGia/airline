@@ -24,21 +24,21 @@ from Airplane import df
 
 # Remplacer les valeurs à zeros par la moyenne car zero représente l'absence d'avis
 df["Inflight wifi service"] = df["Inflight wifi service"].replace(0, df["Inflight wifi service"].mean())
-df["departure/arrival time convenient"] = df["departure/arrival time convenient"].replace(0, df["departure/arrival time convenient"].mean())
-df["ease of online booking"] = df["ease of online booking"].replace(0, df["ease of online booking"].mean())
-df["gate location"] = df["gate location"].replace(0, df["gate location"].mean())
-df["food and drink"] = df["food and drink"].replace(0, df["food and drink"].mean())
-df["online boarding"] = df["online boarding"].replace(0, df["online boarding"].mean())
-df["seat comfort"] = df["seat comfort"].replace(0, df["seat comfort"].mean())
-df["inflight entertainment"] = df["inflight entertainment"].replace(0, df["inflight entertainment"].mean())
-df["onboard service"] = df["onboard service"].replace(0, df["onboard service"].mean())
-df["leg room service"] = df["leg room service"].replace(0, df["leg room service"].mean())
-df["checkin service"] = df["checkin service"].replace(0, df["checkin service"].mean())
-df["inflight service"] = df["inflight service"].replace(0, df["inflight service"].mean())
-df["cleanliness"] = df["cleanliness"].replace(0, df["cleanliness"].mean())
+df["Departure/Arrival time convenient"] = df["Departure/Arrival time convenient"].replace(0, df["Departure/Arrival time convenient"].mean())
+df["Ease of Online booking"] = df["Ease of Online booking"].replace(0, df["Ease of Online booking"].mean())
+df["Gate location"] = df["Gate location"].replace(0, df["Gate location"].mean())
+df["Food and drink"] = df["Food and drink"].replace(0, df["Food and drink"].mean())
+df["Online boarding"] = df["Online boarding"].replace(0, df["Online boarding"].mean())
+df["Seat comfort"] = df["Seat comfort"].replace(0, df["Seat comfort"].mean())
+df["Inflight entertainment"] = df["Inflight entertainment"].replace(0, df["Inflight entertainment"].mean())
+df["On-board service"] = df["On-board service"].replace(0, df["On-board service"].mean())
+df["Leg room service"] = df["Leg room service"].replace(0, df["Leg room service"].mean())
+df["Checkin service"] = df["Checkin service"].replace(0, df["Checkin service"].mean())
+df["Inflight service"] = df["Inflight service"].replace(0, df["Inflight service"].mean())
+df["Cleanliness"] = df["Cleanliness"].replace(0, df["Cleanliness"].mean())
 
 # Separation de la target et des features
-X = df.drop(["Satisfaction","id", "Departure Delay in Minutes", "Gender", "Food and drink", "Inflight entertainment", "Leg room service", ], axis=1)
+X = df.drop(["Satisfaction","id", "Departure Delay in Minutes", "Gender", "Food and drink", "Inflight entertainment", "Leg room service"], axis=1)
 y = df["Satisfaction"]
 
 # Enregistrement du dataframe original avec les colonnes jugées inutiles pour la prédiction retirées
