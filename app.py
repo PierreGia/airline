@@ -5,11 +5,19 @@ from components.formSatisfaction import formsatisfaction
 from components.formInscription import formInscription
 from components.formConnexion import formConnexion
 from components.boardStat import boardstat
-from components.figure import plot_graph, curvroc, confmat, metric, features
-from Airplane import df
-import bcrypt
-import mysql.connector
+from components.useful_function import session
 
+from Airplane import df
+
+if 'authentication_status' not in st.session_state:
+    st.session_state['authentication_status'] = ''
+
+if 'name' not in st.session_state:
+    st.session_state['name'] = ''
+
+if 'authenticator' not in st.session_state:
+    st.session_state['authenticator'] = ''
+    
 # Titre de l'application
 # st.title("Application de Réservation de Vols")
 # st.dataframe(df.sort_values(by='id'))
@@ -18,21 +26,17 @@ import mysql.connector
 confusion = "figures/confusion_matrix.png"
 features = "figures/features.png"
 metrics = "figures/metrics.png"
-roc_curve = "figures/roc_curve.png"
+curve_roc = "figures/roc_curve.png"
 
 
 # Menu de navigation latéral
-selection = st.sidebar.radio("Sélectionnez une page", ["formulaire", "tableau de bord", "graphe", "inscription", "connexion"])
+selection = st.sidebar.radio("Sélectionnez une page", ["inscription", "connexion", "formulaire", "tableau de bord"])
 
 if selection == "formulaire":
-    formsatisfaction ()
-    
-elif selection == "tableau de bord":
-    st.title("Tableau de bord")
-    boardstat(confusion, features, metrics, roc_curve)
+    session(formsatisfaction)
 
-elif selection == "graphe":
-    plot_graph(curvroc, confmat, metric, features)
+elif selection == "tableau de bord":
+    session(boardstat, confusion, features, metrics, curve_roc)
 
 elif selection == "inscription":
     formInscription()

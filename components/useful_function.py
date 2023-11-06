@@ -9,6 +9,7 @@ import numpy as np
 import itertools
 import string
 import random
+import streamlit as st
 
 def test_model(X_train, X_test, y_train, y_test, models, param_grids):
   '''
@@ -119,9 +120,10 @@ Une matrice de confusion étiquetée comparant y_true et y_pred.
               horizontalalignment="center",
               color="white" if cm[i, j] > threshold else "black",
               size=text_size)
-
-  # Enregistrer la figure dans le dossier courant
+      
+  # Enregistrer la figure dans le dossier figures
   fig.savefig("figures/confusion_matrix.png")
+  return fig
 
 def plot_features(columns, importances, n=20):
   df = (pd.DataFrame({"features": columns,
@@ -141,3 +143,17 @@ def generate_random_string(length):
     characters = string.ascii_letters + string.digits  # Caractères autorisés : lettres et chiffres
     random_string = ''.join(random.choice(characters) for _ in range(length))
     return random_string
+
+def session(fonction=None, *args):
+  # On affiche la session    
+  if st.session_state["authentication_status"]:
+    st.session_state["authenticator"].logout('Logout', 'main', key='unique_key')
+    st.write(f'Bienvenue *{st.session_state["name"]}*')
+    if fonction and args:
+      fonction(*args)
+    elif fonction:
+      fonction()
+  elif st.session_state["authentication_status"] is False:
+      st.error('nom d’utilisateur ou mot de passe incorrect')
+  elif st.session_state["authentication_status"] is None:
+      st.warning('Veuillez entrer votre nom d’utilisateur et votre mot de passe')
