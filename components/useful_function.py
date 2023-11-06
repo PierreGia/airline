@@ -7,6 +7,8 @@ from sklearn.metrics import confusion_matrix
 import matplotlib.pyplot as plt
 import numpy as np
 import itertools
+import string
+import random
 
 def test_model(X_train, X_test, y_train, y_test, models, param_grids):
   '''
@@ -133,3 +135,9 @@ def plot_features(columns, importances, n=20):
   ax.set_ylabel("Features")
   ax.set_xlabel("Feature_importance")
   ax.invert_yaxis()
+  return fig
+
+def generate_random_string(length):
+    characters = string.ascii_letters + string.digits  # Caractères autorisés : lettres et chiffres
+    random_string = ''.join(random.choice(characters) for _ in range(length))
+    return random_string

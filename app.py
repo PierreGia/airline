@@ -2,7 +2,10 @@
 
 import streamlit as st
 from components.formSatisfaction import formsatisfaction
+from components.formInscription import formInscription
+from components.formConnexion import formConnexion
 from components.boardStat import boardstat
+from components.figure import plot_graph, curvroc, confmat, metric, features
 from Airplane import df
 import bcrypt
 import mysql.connector
@@ -19,7 +22,7 @@ roc_curve = "figures/roc_curve.png"
 
 
 # Menu de navigation latéral
-selection = st.sidebar.radio("Sélectionnez une page", ["formulaire", "tableau de bord"])
+selection = st.sidebar.radio("Sélectionnez une page", ["formulaire", "tableau de bord", "graphe", "inscription", "connexion"])
 
 if selection == "formulaire":
     formsatisfaction ()
@@ -28,7 +31,14 @@ elif selection == "tableau de bord":
     st.title("Tableau de bord")
     boardstat(confusion, features, metrics, roc_curve)
 
+elif selection == "graphe":
+    plot_graph(curvroc, confmat, metric, features)
 
+elif selection == "inscription":
+    formInscription()
+
+elif selection == "connexion":
+    formConnexion()
 
     
 

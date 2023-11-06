@@ -13,7 +13,7 @@ import joblib
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import SGDClassifier
 from sklearn.kernel_approximation import RBFSampler
-from useful_function import test_model
+from components.useful_function import test_model
 from sklearn.ensemble import RandomForestClassifier
 
 # Comme le fichier "Airplane.py" est inclus dans le dossier parent du dossier actuel on revient deux fois en arrière

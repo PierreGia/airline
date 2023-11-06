@@ -5,12 +5,17 @@ import streamlit as st
 import streamlit.components.v1 as components
 import pandas as pd
 import joblib
+from components.formConnexion import formConnexion
 
+authentication_status, authenticator, name = formConnexion()
 
 def formsatisfaction():
     '''
     formulaire pour permettre à l'utilisateur de rentrer des paramètres et utiliser le modèle sur ces variables.
     '''
+    
+    authentication_status, authenticator, name = formConnexion()
+
     # Titre de l'application
     st.title("Application de Vols")
 
