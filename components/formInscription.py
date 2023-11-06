@@ -17,7 +17,7 @@ from components.formConnexion import formConnexion
 
 def formInscription():
 
-    authentication_status, authenticator, name = formConnexion()
+    #authentication_status, authenticator, name = formConnexion()
 
     # Connexion a la base de données
 
@@ -56,4 +56,5 @@ def formInscription():
             session.commit()
             st.success("Inscription reussie")
             session.close()
+            
 

@@ -14,7 +14,7 @@ def formsatisfaction():
     formulaire pour permettre à l'utilisateur de rentrer des paramètres et utiliser le modèle sur ces variables.
     '''
     
-    authentication_status, authenticator, name = formConnexion()
+    #authentication_status, authenticator, name = formConnexion()
 
     # Titre de l'application
     st.title("Application de Vols")

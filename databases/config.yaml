@@ -1,24 +1,32 @@
 cookie:
   expiry_days: 30
-  key: vzMad
-  name: bum
+  key: B2m4c
+  name: 6F2
 credentials:
   usernames:
-    jojo:
-      email: jojo@gmail.com
-      name: lombardi
-      password: $2b$12$.K7Rd6eMljM3oAz.0DkG4ODh3sw3QabZTg0gSwyzO21Ya1PCKu59S
-    juju:
-      email: juju@mail.com
-      name: julo
-      password: $2b$12$Wsf/LPHVRVRSnWE3H.NnmePcxfmQnHlJVckqaMfFFd1XErB8Y.rpy
-    lola:
-      email: lola@gmail.com
-      name: lolo
-      password: $2b$12$/ZJPMlH.gIjkjNF8Km563ugWcw6.ULeA6gMprAho0JBwbctb3tpBS
+    arthur:
+      email: arthur@gmail.com
+      name: arthur
+      password: $2b$12$b9bIqkxVaSfCEJvPf80YI.GctaQ6PUeT4QGBORHZ4HSZ0Zt6GJ8nG
+    joachim:
+      email: joachim@gmail.com
+      name: joachim
+      password: $2b$12$xfJGQQNZ2xrL2nQYZdlkweg4NKl0ky3oqdI4mi6KE5eBDt9C8/o4y
+    marchepas:
+      email: marchepas@gmail.com
+      name: marchepas
+      password: $2b$12$wpOzBGu.lAqcmBz2srIypOarvtoKeDkhuz/PVGI8dmLsEMmOr6sci
     pierre:
-      email: pierre@simplon.co
-      name: pierrot
-      password: $2b$12$dK8IlRmsdjj1ZYR/Lh6elOLxzAVm5jNnPgS/2s0NGR.h1KdX7239G
+      email: pierregia13@gmail.com
+      name: pierre
+      password: $2b$12$qINvWSdNY/WjxcrybcWsq.cpBZSjGDD45MgZqPrzqVoIdmPFL4PQO
+    pourquoi:
+      email: pourquoi@gmail.com
+      name: pourquoi
+      password: $2b$12$gqgXSGEND9k8LHT3ubiMf.HhwRiGVEWX/kMGaBsCQEJKo3Hb7tRcO
+    test:
+      email: test@gmail.com
+      name: test
+      password: $2b$12$6es72Ns6HRqdvU51.md5juJEZpRLjmdjR3PgdAaGE.1tKsd1h9J/m
 prehautorized:
   emails: antonys@simplon.co
