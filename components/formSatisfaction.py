@@ -5,17 +5,12 @@ import streamlit as st
 import streamlit.components.v1 as components
 import pandas as pd
 import joblib
-from components.formConnexion import formConnexion
-
-authentication_status, authenticator, name = formConnexion()
 
 def formsatisfaction():
     '''
     formulaire pour permettre à l'utilisateur de rentrer des paramètres et utiliser le modèle sur ces variables.
     '''
     
-    authentication_status, authenticator, name = formConnexion()
-
     # Titre de l'application
     st.title("Application de Vols")
 
@@ -132,13 +127,11 @@ def formsatisfaction():
 
         # Affichez la prédiction et sa probabilite
         if prediction:
-            satisfaction, mood, proba = "Satisfied", ":grin:", model.predict_proba(df)[0][1] 
+            satisfaction, mood, proba = "Satisfait", ":grin:", model.predict_proba(df)[0][1] 
         else:
-            satisfaction, mood, proba = "Neutral or dissatisfied", ":angry:", (1 - model.predict_proba(df)[0][1])
+            satisfaction, mood, proba = "Neutre ou insatisfait", ":angry:", (1 - model.predict_proba(df)[0][1])
 
-        st.write("Prediction:", satisfaction, "with probability:", f"{proba*100:.2f} %", mood)
-
-
+        st.write("Prédiction:", satisfaction, "avec une probabilité de :", f"{proba*100:.2f} %", mood)
 
         #st.title("resultats")
     

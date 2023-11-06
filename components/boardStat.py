@@ -21,7 +21,7 @@ def boardstat(confusion, features, metrics, roc_curve):
     st.image(open(features, 'rb').read(), use_column_width=True, caption="Caractéristiques")
     st.image(open(metrics, 'rb').read(), use_column_width=True, caption="Métriques")
     st.image(open(roc_curve, 'rb').read(), use_column_width=True, caption="Courbe ROC")
-    authentication_status, authenticator, name = formConnexion()
+ 
 
 
 
