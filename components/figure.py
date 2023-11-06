@@ -46,13 +46,5 @@ features = plot_features(X_test.columns, model.feature_importances_)
 
 plt.savefig('figures/features.png')
 
-def plot_graph(curve_roc, confusion, metric, features):
-
-    authentication_status, authenticator, name = formConnexion()
-
-    st.pyplot(curve_roc.figure_)
-    st.pyplot(confusion)
-    st.pyplot(metric)
-    st.pyplot(features)
 
 
