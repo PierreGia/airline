@@ -12,7 +12,9 @@ class Satisfaction(Base):
 class Gender(Base):
     __tablename__ = 'gender'
     id = Column(Integer, primary_key=True)
+
     gender = Column(String(255), nullable=False)
+
 
 class Client(Base):
     __tablename__ = 'client'
@@ -24,10 +26,12 @@ class Client(Base):
     type = relationship('Type')
     
     
+
 class Customer_type(Base):
     __tablename__ = 'customer_type'
     id = Column(Integer, primary_key=True)
     type = Column(String(255), nullable=False)
+
     
 
 class Flight(Base):
@@ -41,13 +45,17 @@ class Flight(Base):
 class Type_Travel(Base):
     __tablename__ = 'type_travel'
     id = Column(Integer, primary_key=True)
+
     type_travel = Column(String(255), nullable=False)
+
 
 class Class(Base):
     __tablename__ = 'class'
     id = Column(Integer, primary_key=True)
+
     class_travel = Column(String(255), nullable=False)
  
+
     
 class Vol_Client(Base):
     __tablename__ = 'vol_client'
@@ -66,7 +74,9 @@ class Vol_Client(Base):
     checkin_service = Column(Integer)
     inflight_service = Column(Integer)
     cleanliness = Column(Integer)
+
     satisfaction_id = Column(Integer, ForeignKey('satisfaction.id'))
+
     client_id = Column(Integer, ForeignKey('client.id'))
     flight_id = Column(Integer, ForeignKey('flight.id'))
     class_id = Column(Integer, ForeignKey('class.id'))
