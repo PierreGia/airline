@@ -1,7 +1,7 @@
 cookie:
   expiry_days: 30
-  key: rWwI8
-  name: LAf
+  key: vzMad
+  name: bum
 credentials:
   usernames:
     jojo:
@@ -16,5 +16,9 @@ credentials:
       email: lola@gmail.com
       name: lolo
       password: $2b$12$/ZJPMlH.gIjkjNF8Km563ugWcw6.ULeA6gMprAho0JBwbctb3tpBS
+    pierre:
+      email: pierre@simplon.co
+      name: pierrot
+      password: $2b$12$dK8IlRmsdjj1ZYR/Lh6elOLxzAVm5jNnPgS/2s0NGR.h1KdX7239G
 prehautorized:
   emails: antonys@simplon.co
