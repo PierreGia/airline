@@ -34,3 +34,4 @@ credentials:
       password: $2b$12$6es72Ns6HRqdvU51.md5juJEZpRLjmdjR3PgdAaGE.1tKsd1h9J/m
 prehautorized:
   emails: antonys@simplon.co
+  
