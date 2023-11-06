@@ -1,6 +1,3 @@
-
-#dans app on appelle les différentes fonction des fichiers dans components
-
 import streamlit as st
 
 # Chemins vers les images
@@ -9,12 +6,12 @@ features = "figures/features.png"
 metrics = "figures/metrics.png"
 roc_curve = "figures/roc_curve.png"
 
-def boardstat(confusion, features, metrics, roc_curve):
+def afficher_images(confusion, features, metrics, roc_curve):
     # Affichage des images
     st.image(open(confusion, 'rb').read(), use_column_width=True, caption="Matrice de confusion")
     st.image(open(features, 'rb').read(), use_column_width=True, caption="Caractéristiques")
     st.image(open(metrics, 'rb').read(), use_column_width=True, caption="Métriques")
     st.image(open(roc_curve, 'rb').read(), use_column_width=True, caption="Courbe ROC")
 
-# if __name__ == "__main__":
-#     boardstat(confusion, features, metrics, roc_curve)
+if __name__ == "__main__":
+    afficher_images(confusion, features, metrics, roc_curve)
