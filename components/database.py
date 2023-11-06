@@ -32,7 +32,6 @@ DATABASE_PORT = config.DATABASE_PORT
 engine = create_engine(f"mysql://{DATABASE_USERNAME}:{DATABASE_PASSWORD}@{DATABASE_HOST}:{DATABASE_PORT}/{DATABASE_NAME}")
 
 # creation de la base de données si elle n'existe pas
-
 if database_exists(engine.url):
     drop_database(engine.url)
 

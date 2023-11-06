@@ -167,3 +167,6 @@ ML/SGDClassifier.joblib
 
 # figure
 figures/
+
+#YAML
+databases/config.yaml

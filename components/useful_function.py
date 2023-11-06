@@ -2,7 +2,6 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 import joblib
 import pandas as pd
-from sklearn.linear_model import SGDClassifier
 from sklearn.metrics import confusion_matrix
 import matplotlib.pyplot as plt
 import numpy as np
@@ -126,6 +125,15 @@ Une matrice de confusion étiquetée comparant y_true et y_pred.
   return fig
 
 def plot_features(columns, importances, n=20):
+  '''
+  Cette fonction permet de tracer les paramètres les plus importante
+  Args: 
+    columns: colonnes du dataframe
+    importances: importances des paramètres
+    n: nombre de paramètres affichés
+  Returns:
+    Un graphique avec les paramètres les plus importants
+  '''
   df = (pd.DataFrame({"features": columns,
                       "feature_importances": np.round(importances, 3)})
       .sort_values("feature_importances", ascending=False)
@@ -140,11 +148,24 @@ def plot_features(columns, importances, n=20):
   return fig
 
 def generate_random_string(length):
+    '''
+    Cette fonction permet de créer une chaîne de caractères contenant des caractères alphanumériques
+    Args:
+        length: longueur de la chaîne de caractères désirée
+    Returns:
+        Une chaîne de caractères avec des caractères alphanumériques
+    '''
     characters = string.ascii_letters + string.digits  # Caractères autorisés : lettres et chiffres
     random_string = ''.join(random.choice(characters) for _ in range(length))
     return random_string
 
 def session(fonction=None, *args):
+  '''
+  Cette fonction permet de créer une session
+  Args:
+    fonction: fonction qui affichera le contenu de la page
+    *args: arguments de la fonction
+  '''
   # On affiche la session    
   if st.session_state["authentication_status"]:
     st.session_state["authenticator"].logout('Logout', 'main', key='unique_key')

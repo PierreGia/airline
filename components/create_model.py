@@ -1,7 +1,7 @@
 # Nettoyage des donnees
 
 # import des libraries
-from sklearn.preprocessing import OneHotEncoder, StandardScaler, MinMaxScaler
+from sklearn.preprocessing import OneHotEncoder, MinMaxScaler
 from sklearn.pipeline import make_pipeline
 from sklearn.compose import make_column_selector
 from sklearn.compose import make_column_transformer
@@ -11,8 +11,6 @@ import pandas as pd
 import os, sys
 import joblib
 from sklearn.model_selection import train_test_split
-from sklearn.linear_model import SGDClassifier
-from sklearn.kernel_approximation import RBFSampler
 from components.useful_function import test_model
 from sklearn.ensemble import RandomForestClassifier
 

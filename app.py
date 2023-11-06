@@ -9,6 +9,7 @@ from components.useful_function import session
 
 from Airplane import df
 
+# Initialisation des variables de session
 if 'authentication_status' not in st.session_state:
     st.session_state['authentication_status'] = ''
 
@@ -32,6 +33,7 @@ curve_roc = "figures/roc_curve.png"
 # Menu de navigation latéral
 selection = st.sidebar.radio("Sélectionnez une page", ["inscription", "connexion", "formulaire", "tableau de bord"])
 
+# Affichage de la page correspondante
 if selection == "formulaire":
     session(formsatisfaction)
 

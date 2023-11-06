@@ -12,8 +12,6 @@ sys.path.append(parent_dir)
 print(parent_dir)
 from databases import config
 from databases.classes import Login_Mot_de_passe
-from components.yaml_credentials import exec_yaml
-from components.formConnexion import formConnexion
 
 def formInscription():
 

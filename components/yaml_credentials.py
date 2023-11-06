@@ -1,6 +1,5 @@
 from sqlalchemy.orm import sessionmaker
 import os, sys
-import streamlit_authenticator as stauth
 import yaml
 
 from sqlalchemy import create_engine
