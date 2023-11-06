@@ -1,11 +1,14 @@
 from sklearn.metrics import classification_report
 import joblib
-from create_model import X_test, y_test
+from components.create_model import X_test, y_test
 from sklearn.metrics import RocCurveDisplay
 import matplotlib.pyplot as plt
-from useful_function import make_confusion_matrix, plot_features
+from components.useful_function import make_confusion_matrix, plot_features
 import pandas as pd
 import streamlit as st
+from components.formConnexion import formConnexion
+
+
 
 # Analyse du model RandomForestClassifier
 
@@ -39,6 +42,9 @@ features = plot_features(X_test.columns, model.feature_importances_)
 plt.savefig('figures/features.png')
 
 def plot_graph(curvroc, confmat, metric, features):
+
+    authentication_status, authenticator, name = formConnexion()
+
     st.pyplot(curvroc.figure_)
     st.pyplot(confmat)
     st.pyplot(metric)

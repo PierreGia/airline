@@ -18,6 +18,8 @@ class Login_Mot_de_passe(Base):
     __tablename__ = 'login_mot_de_passe'
     id = Column(Integer, primary_key=True)
     login = Column(String(255), nullable=True)
+    email = Column(String(255), nullable=True)
+    name = Column(String(255), nullable=True)
     mot_de_passe = Column(String(255), nullable=True)
 
 class Client(Base):
