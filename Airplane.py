@@ -3,6 +3,7 @@ import os
 import pandas as pd
 import ydata_profiling
 
+# Generation du rapport HTML présentant l'analyse des données
 from ydata_profiling import ProfileReport # conda install -c conda-forge ydata-profiling
 print(os.getcwd())
 df = pd.read_csv('data/Airline_Dataset.csv')
