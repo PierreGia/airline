@@ -16,7 +16,7 @@ from components.yaml_credentials import exec_yaml
 from components.formConnexion import formConnexion
 
 def formInscription():
-
+    
     #authentication_status, authenticator, name = formConnexion()
 
     # Connexion a la base de données

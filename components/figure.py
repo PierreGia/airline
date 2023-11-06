@@ -9,10 +9,6 @@ import streamlit as st
 
 from components.formConnexion import formConnexion
 
-
-
-
-
 st.title("figure")
 #Définissez une fonction pour générer la courbe ROC, la matrice de confusion et d'autres éléments.
 #def generate_metrics_and_plots(model, X_test, y_test):
@@ -27,8 +23,6 @@ curveroc= RocCurveDisplay.from_estimator(model, X_test, y_test)
 
 # Sauvegarde de la figure
 plt.savefig('figures/roc_curve.png')
-
-
 
 # Creation de la matrice de confusion et sauvegarde de la figure
 

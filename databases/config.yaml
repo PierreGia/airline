@@ -1,7 +1,7 @@
 cookie:
   expiry_days: 30
-  key: B2m4c
-  name: 6F2
+  key: dDy2g
+  name: 9Oj
 credentials:
   usernames:
     arthur:
@@ -16,6 +16,10 @@ credentials:
       email: marchepas@gmail.com
       name: marchepas
       password: $2b$12$wpOzBGu.lAqcmBz2srIypOarvtoKeDkhuz/PVGI8dmLsEMmOr6sci
+    nul:
+      email: nul@gmail.com
+      name: nul
+      password: $2b$12$/ZsNuJGMPPlg4ea3kq5gOOaw1vZ7rh7VCkcUS30yX07EMeIbKhIF.
     pierre:
       email: pierregia13@gmail.com
       name: pierre
