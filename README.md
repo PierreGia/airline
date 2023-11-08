@@ -1,12 +1,12 @@
 #  projet airline
 
-lient trello : https://trello.com/invite/b/a3Owefoc/ATTIc0a5d38e0be81d7f220617fface7e416CA156689/application-plane
+lien trello : https://trello.com/invite/b/a3Owefoc/ATTIc0a5d38e0be81d7f220617fface7e416CA156689/application-plane
 
 
 
 # Installation
 
-pour commencer il faut cloner le repo github avec cette commande : 
+Pour commencer il faut cloner le repo github avec cette commande : 
 
 git clone https://github.com/PierreGia/airline.git
 
