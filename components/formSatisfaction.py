@@ -6,6 +6,7 @@ def formsatisfaction():
     '''
     formulaire pour permettre à l'utilisateur de rentrer des paramètres et utiliser le modèle sur ces variables.
     '''
+    #authentication_status, authenticator, name = formConnexion()
     
     # Titre de l'application
     st.title("Application de Vols")
@@ -130,7 +131,3 @@ def formsatisfaction():
         st.write("Prédiction:", satisfaction, "avec une probabilité de :", f"{proba*100:.2f} %", mood)
 
         #st.title("resultats")
-    
-        
-        
-   

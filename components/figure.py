@@ -17,7 +17,7 @@ y_pred = model.predict(X_test)
 
 # Creation de la courbe ROC
 
-curve_roc= RocCurveDisplay.from_estimator(model, X_test, y_test)
+curveroc= RocCurveDisplay.from_estimator(model, X_test, y_test)
 
 # Sauvegarde de la figure
 plt.savefig('figures/roc_curve.png')
@@ -42,5 +42,13 @@ plt.savefig('figures/metrics.png')
 features = plot_features(X_test.columns, model.feature_importances_)
 plt.savefig('figures/features.png')
 
+def plot_graph(curvroc, confmat, metric, features):
+
+    authentication_status, authenticator, name = formConnexion()
+
+    st.pyplot(curveroc)
+    st.pyplot(confmat)
+    st.pyplot(metric)
+    st.pyplot(features)
 
 

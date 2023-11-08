@@ -4,6 +4,16 @@ from components.formSatisfaction import formsatisfaction
 from components.formInscription import formInscription
 from components.formConnexion import formConnexion
 from components.boardStat import boardstat
+#from components.figure import plot_graph, curvroc, confmat, metric, features
+from Airplane import df
+import bcrypt
+import mysql.connector
+import streamlit_authenticator
+import os, sys
+import streamlit_authenticator as stauth
+import yaml
+from yaml.loader import SafeLoader
+
 from components.useful_function import session
 
 # Initialisation des variables de session
