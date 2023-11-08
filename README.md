@@ -16,9 +16,9 @@ Apres avoir cloné le repo, il faut ensuite taper la commande :
 pip install -r requirements.txt
 ```
 
-Ensuite, il faut modifier les informations du dossier config.py dans le dossier *create_database* pour que l'adresse de la base de données, le nom de la base de données, le nom d'utilisateur, le mot de passe et le port correspondent à vos informations.
+Ensuite, il faut modifier les informations du dossier *config.py* dans le dossier *create_database* pour que l'adresse de la base de données, le nom de la base de données, le nom d'utilisateur, le mot de passe et le port correspondent à vos informations.
 
-Puis, il faut executer le fichier *create_database.py* qui se trouve dans le dossier components pour créer la base de données.
+Puis, il faut exécuter le fichier *create_database.py* qui se trouve dans le dossier *components* pour créer la base de données.
 
 Pour finir, vous pouvez lancer le fichier *app.py* en executant la commande suivante:
 
