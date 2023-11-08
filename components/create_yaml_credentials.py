@@ -1,9 +1,9 @@
 from sqlalchemy.orm import sessionmaker
 import os, sys
 import yaml
-
 from sqlalchemy import create_engine
 
+# On va dans le dossier parent
 current_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(current_dir)
 sys.path.append(parent_dir)

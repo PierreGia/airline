@@ -2,8 +2,10 @@ from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
 
+# On déclare la base de données
 Base = declarative_base()
 
+# Liste des tables
 class Satisfaction(Base):
     __tablename__ = 'satisfaction'
     id = Column(Integer, primary_key=True)

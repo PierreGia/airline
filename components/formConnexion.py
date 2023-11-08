@@ -4,10 +4,11 @@ import streamlit_authenticator as stauth
 import yaml
 from yaml.loader import SafeLoader
 
+# On va dans le dossier parent
 current_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(current_dir)
 sys.path.append(parent_dir)
-from components.yaml_credentials import exec_yaml
+from components.create_yaml_credentials import exec_yaml
 from components.useful_function import session
 
 def formConnexion():

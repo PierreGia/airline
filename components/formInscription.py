@@ -2,10 +2,9 @@ import streamlit as st
 from sqlalchemy.orm import sessionmaker
 import os, sys
 import streamlit_authenticator as stauth
-
-
 from sqlalchemy import create_engine
 
+# On va dans le dossier parent
 current_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(current_dir)
 sys.path.append(parent_dir)
@@ -27,13 +26,14 @@ def formInscription():
     # Création du moteur de base de données
     engine = create_engine(f"mysql://{DATABASE_USERNAME}:{DATABASE_PASSWORD}@{DATABASE_HOST}:{DATABASE_PORT}/{DATABASE_NAME}")
 
+    # Creation du formulaire d'inscription
     st.title("Formulaire d'inscription")
-
     login = st.text_input("Login")
     email = st.text_input("Email")
     name = st.text_input("Nom")
     password = st.text_input("Mot de passe", type="password")
 
+    # Hashage du mot de passe
     hashed_passwords = stauth.Hasher(passwords=[password]).generate()
 
     if st.button("S'enregistrer"):

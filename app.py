@@ -1,13 +1,10 @@
 #dans app on appelle les différentes fonction des fichiers dans components
-
 import streamlit as st
 from components.formSatisfaction import formsatisfaction
 from components.formInscription import formInscription
 from components.formConnexion import formConnexion
 from components.boardStat import boardstat
 from components.useful_function import session
-
-from Airplane import df
 
 # Initialisation des variables de session
 if 'authentication_status' not in st.session_state:
@@ -28,7 +25,6 @@ confusion = "figures/confusion_matrix.png"
 features = "figures/features.png"
 metrics = "figures/metrics.png"
 curve_roc = "figures/roc_curve.png"
-
 
 # Menu de navigation latéral
 selection = st.sidebar.radio("Sélectionnez une page", ["inscription", "connexion", "formulaire", "tableau de bord"])

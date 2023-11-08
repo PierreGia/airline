@@ -10,6 +10,7 @@ import string
 import random
 import streamlit as st
 
+# Liste des fonctions utiles
 def test_model(X_train, X_test, y_train, y_test, models, param_grids):
   '''
   Cette fonction permet de tester les modèles en fonction des hyperparamètres
