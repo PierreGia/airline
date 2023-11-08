@@ -169,8 +169,5 @@ ML/SGDClassifier.joblib
 #config db
 databases/config.py
 
-#config db
-databases/config.py
-
 databases/config.yaml
 
