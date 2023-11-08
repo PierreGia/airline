@@ -3,11 +3,6 @@
 
 import streamlit as st
 
-import pandas as pd
-import os, sys
-from components.formConnexion import formConnexion
-
-
 # Chemins vers les images
 confusion = "figures/confusion_matrix.png"
 features = "figures/features.png"

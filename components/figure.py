@@ -7,8 +7,6 @@ from components.useful_function import make_confusion_matrix, plot_features
 import pandas as pd
 import streamlit as st
 
-from components.formConnexion import formConnexion
-
 st.title("figure")
 #Définissez une fonction pour générer la courbe ROC, la matrice de confusion et d'autres éléments.
 #def generate_metrics_and_plots(model, X_test, y_test):
@@ -41,9 +39,7 @@ metric = metrics.T.plot.bar(title="scores du model RandomForestClassifier")
 plt.savefig('figures/metrics.png')
 
 # Creation du graphique des features et sauvegarde de la figure
-
 features = plot_features(X_test.columns, model.feature_importances_)
-
 plt.savefig('figures/features.png')
 
 def plot_graph(curvroc, confmat, metric, features):
